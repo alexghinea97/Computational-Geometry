@@ -13,7 +13,7 @@ namespace Proiect_GC
     public partial class Form1 : Form
     {
         List<Point> Points = new List<Point>();
-        
+        Point MyPoint = new Point();
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +25,8 @@ namespace Proiect_GC
 
             if (Points.Count() == 5)
             {
-                label1.Text = "X = " + Points[0].X + "; Y = " + Points[0].Y;
+                label1.Text = "My point is X = " + Points[0].X + "; Y = " + Points[0].Y;
+                MyPoint = p;
                 CreatePoligon();
             }
             else
