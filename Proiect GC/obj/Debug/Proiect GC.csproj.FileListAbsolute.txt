@@ -1,0 +1,9 @@
+C:\Users\alexa\Desktop\Proiect GC\Proiect GC\bin\Debug\Proiect GC.exe.config
+C:\Users\alexa\Desktop\Proiect GC\Proiect GC\bin\Debug\Proiect GC.exe
+C:\Users\alexa\Desktop\Proiect GC\Proiect GC\bin\Debug\Proiect GC.pdb
+C:\Users\alexa\Desktop\Proiect GC\Proiect GC\obj\Debug\Proiect GC.csprojResolveAssemblyReference.cache
+C:\Users\alexa\Desktop\Proiect GC\Proiect GC\obj\Debug\Proiect_GC.Form1.resources
+C:\Users\alexa\Desktop\Proiect GC\Proiect GC\obj\Debug\Proiect_GC.Properties.Resources.resources
+C:\Users\alexa\Desktop\Proiect GC\Proiect GC\obj\Debug\Proiect GC.csproj.GenerateResource.Cache
+C:\Users\alexa\Desktop\Proiect GC\Proiect GC\obj\Debug\Proiect GC.exe
+C:\Users\alexa\Desktop\Proiect GC\Proiect GC\obj\Debug\Proiect GC.pdb
