@@ -32,15 +32,13 @@ namespace Proiect_GC
                 case 5:
                     label1.Text = "My point is X = " + Points[0].X + "; Y = " + Points[0].Y;
                     MyPoint = p;
+                    //DrawLineTransparent();
                     VerifyWherePointIs();
                     break;
                 default:
                     Points.Add(p);
                     break;
             }
-
-            if (Points.Count() > 5)
-                VerifyWherePointIs();
         }
 
         private void VerifyWherePointIs()
@@ -88,10 +86,24 @@ namespace Proiect_GC
                                 label1.Text = "Punctul se afla in interiorul triunghiului.";
                                 DrawLine(Points[1], Points[4]);
                             }
+                            else
+                                label1.Text = "Punctul se afla in exteriorul poligonului.";
                         }
                     }
                 }
             }
+        }
+
+        private void DrawLineTransparent()
+        {
+            Graphics gObject = this.CreateGraphics();
+            Pen pen = new Pen(Color.White, 5);
+            gObject.DrawLine(pen, Points[0], Points[2]);
+            gObject.DrawLine(pen, Points[1], Points[3]);
+            gObject.DrawLine(pen, Points[2], Points[4]);
+            gObject.DrawLine(pen, Points[3], Points[0]);
+            gObject.DrawLine(pen, Points[1], Points[4]);
+            gObject.Dispose();
         }
 
         private void DrawLine(Point p1, Point p2)
