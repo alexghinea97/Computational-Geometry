@@ -51,7 +51,10 @@ namespace Proiect_GC
             bool isInTriangle5 = PointInTriangle(MyPoint, Points[4], Points[0], Points[1]);
 
             if (isOnSide)
+            {
                 label1.Text = "Punctul se afla pe latura poligonului.";
+                return;
+            }
 
             if (isInTriangle1)
             {
