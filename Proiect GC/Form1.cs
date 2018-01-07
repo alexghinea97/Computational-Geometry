@@ -32,17 +32,43 @@ namespace Proiect_GC
                 case 5:
                     label1.Text = "My point is X = " + Points[0].X + "; Y = " + Points[0].Y;
                     MyPoint = p;
+                    VerifyWherePointIs();
                     break;
                 default:
                     Points.Add(p);
                     break;
             }
+
+            if (Points.Count() > 5)
+                VerifyWherePointIs();
+        }
+
+        private void VerifyWherePointIs()
+        {
+            bool isOnSide = CheckIfItsOnSide();
+
+            if (isOnSide)
+                label1.Text = "Punctul se afla pe latura poligonului.";
+        }
+
+        private bool CheckIfItsOnSide()
+        {
+            for(int i=0;i<4;i++)
+            {
+                double d1 = Math.Sqrt(Math.Pow(Points[i].X - MyPoint.X, 2) + Math.Pow(Points[i].Y - MyPoint.Y, 2));
+                double d2 = Math.Sqrt(Math.Pow(MyPoint.X - Points[i+1].X, 2) + Math.Pow(MyPoint.Y - Points[i+1].Y, 2));
+                double d3 = Math.Sqrt(Math.Pow(Points[i].X - Points[i+1].X, 2) + Math.Pow(Points[i].Y - Points[i+1].Y, 2));
+
+                if ((int)d1 + (int)d2 == (int)d3)
+                    return true;
+            }
+            return false;
         }
 
         private void CreatePoligon()
         {
             Graphics gObject = this.CreateGraphics();
-            Pen pen = new Pen(Color.Black, 1);
+            Pen pen = new Pen(Color.Black, 5);
             if (Points.Count() == 5)
             {
                 gObject.DrawLine(pen, Points[0], Points[1]);
