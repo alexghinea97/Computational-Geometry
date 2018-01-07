@@ -27,7 +27,8 @@ namespace Proiect_GC
             {
                 case 4:
                     Points.Add(p);
-                    CreatePoligon();
+                    DrawBlackLine(Points[Points.Count() - 2], Points[Points.Count() - 1]);
+                    DrawBlackLine(Points[0], Points[Points.Count() - 1]);
                     break;
                 case 5:
                     label1.Text = "My point is X = " + Points[0].X + "; Y = " + Points[0].Y;
@@ -37,6 +38,8 @@ namespace Proiect_GC
                     break;
                 default:
                     Points.Add(p);
+                    if (Points.Count() > 1)
+                        DrawBlackLine(Points[Points.Count() - 2], Points[Points.Count() - 1]);
                     break;
             }
         }
@@ -117,6 +120,14 @@ namespace Proiect_GC
             gObject.Dispose();
         }
 
+        private void DrawBlackLine(Point p1, Point p2)
+        {
+            Graphics gObject = this.CreateGraphics();
+            Pen pen = new Pen(Color.Black, 5);
+            gObject.DrawLine(pen, p1, p2);
+            gObject.Dispose();
+        }
+
         private bool CheckIfItsOnSide()
         {
             for (int i = 0; i < 4; i++)
@@ -145,21 +156,6 @@ namespace Proiect_GC
         float sign(Point p1, Point p2, Point p3)
         {
             return (p1.X - p3.X) * (p2.Y - p3.Y) - (p2.X - p3.X) * (p1.Y - p3.Y);
-        }
-
-        private void CreatePoligon()
-        {
-            Graphics gObject = this.CreateGraphics();
-            Pen pen = new Pen(Color.Black, 5);
-            if (Points.Count() == 5)
-            {
-                gObject.DrawLine(pen, Points[0], Points[1]);
-                gObject.DrawLine(pen, Points[1], Points[2]);
-                gObject.DrawLine(pen, Points[2], Points[3]);
-                gObject.DrawLine(pen, Points[3], Points[4]);
-                gObject.DrawLine(pen, Points[4], Points[0]);
-            }
-            gObject.Dispose();
         }
     }
 }
