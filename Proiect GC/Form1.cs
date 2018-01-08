@@ -52,6 +52,7 @@ namespace Proiect_GC
             bool isInTriangle3 = PointInTriangle(MyPoint, Points[2], Points[3], Points[4]);
             bool isInTriangle4 = PointInTriangle(MyPoint, Points[3], Points[4], Points[0]);
             bool isInTriangle5 = PointInTriangle(MyPoint, Points[4], Points[0], Points[1]);
+            bool isInTriangle6 = PointInTriangle(MyPoint, Points[0], Points[1], Points[3]);
 
             if (isOnSide)
             {
@@ -93,7 +94,16 @@ namespace Proiect_GC
                                 DrawLine(Points[1], Points[4]);
                             }
                             else
-                                label1.Text = "Punctul se afla in exteriorul poligonului.";
+                            {
+                                if (isInTriangle6)
+                                {
+                                    label1.Text = "Punctul se afla in interiorul triunghiului.";
+                                    DrawLine(Points[2], Points[4]);
+                                    DrawLine(Points[0], Points[2]);
+                                }
+                                else
+                                    label1.Text = "Punctul se afla in exteriorul poligonului.";
+                            }
                         }
                     }
                 }
